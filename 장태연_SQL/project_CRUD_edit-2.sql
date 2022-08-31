@@ -52,6 +52,16 @@ insert into passenger values('PK557','박재성',890522,'010-5068-4741');
 insert into passenger values('SY004','송용수',951115,'010-7412-6678');
 insert into passenger values('KI112','김계영',951118,'010-3214-3369');
 insert into passenger values('KL447','김경엽',951115,'010-7412-6678');
+insert into passenger values('SG524','김성근',960116,'010-5242-4439');
+insert into passenger values('SI119','어수일',951109,'010-2052-9645');
+insert into passenger values('SM223','이상목',950203,'010-9509-2095');
+insert into passenger values('HT605','안현태',950304,'010-5312-5239');
+insert into passenger values('GM653','최규민',950907,'010-7521-1452');
+insert into passenger values('YH732','최윤흠',991230,'010-2435-5626');
+insert into passenger values('MY434','박민주',960427,'010-9543-2463');
+insert into passenger values('SJ312','김수정',951217,'010-5622-1266');
+insert into passenger values('BO650','김병오',880619,'010-8544-2135');
+insert into passenger values('DH926','김도희',830925,'010-7161-1253');
 
 --flight 추가
 insert into flight values('KAL-001','2022-09-10',27,1445,'KR','JP','HND');
