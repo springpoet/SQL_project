@@ -1,22 +1,28 @@
 --depart_nation 추가
-insert into depart_nation values('KR', '대한민국');
-insert into depart_nation values('JP', '일본');
-insert into depart_nation values('US', '미국');
-insert into depart_nation values('GB', '영국');
-insert into depart_nation values('TW', '대만');
-insert into depart_nation values('IT', '이탈리아');
-insert into depart_nation values('DE', '독일');
-insert into depart_nation values('CH', '스위스');
+insert into depart_nation values('KR/ICH', '대한민국/인천');
+insert into depart_nation values('KR/CJU', '대한민국/제주');
+insert into depart_nation values('JP/HND', '일본/하네다');
+insert into depart_nation values('JP/NRT', '일본/나리타');
+insert into depart_nation values('US/JFK', '미국/뉴욕');
+insert into depart_nation values('US/LAX', '미국/LA');
+insert into depart_nation values('GB/LHR', '영국/런던');
+insert into depart_nation values('TW/TPE', '대만/타오위안');
+insert into depart_nation values('IT/FCO', '이탈리아/로마');
+insert into depart_nation values('DE/HHH', '독일/프랑크푸르트');
+insert into depart_nation values('CH/ZRH', '스위스/취리히');
 
 --arrive_nation 추가
-insert into arrive_nation values('KR', '대한민국');
-insert into arrive_nation values('JP', '일본');
-insert into arrive_nation values('US', '미국');
-insert into arrive_nation values('GB', '영국');
-insert into arrive_nation values('TW', '대만');
-insert into arrive_nation values('IT', '이탈리아');
-insert into arrive_nation values('DE', '독일');
-insert into arrive_nation values('CH', '스위스');
+insert into arrive_nation values('KR/ICH', '대한민국/인천');
+insert into arrive_nation values('KR/CJU', '대한민국/제주');
+insert into arrive_nation values('JP/HND', '일본/하네다');
+insert into arrive_nation values('JP/NRT', '일본/나리타');
+insert into arrive_nation values('US/JFK', '미국/뉴욕');
+insert into arrive_nation values('US/LAX', '미국/LA');
+insert into arrive_nation values('GB/LHR', '영국/런던');
+insert into arrive_nation values('TW/TPE', '대만/타오위안');
+insert into arrive_nation values('IT/FCO', '이탈리아/로마');
+insert into arrive_nation values('DE/HHH', '독일/프랑크푸르트');
+insert into arrive_nation values('CH/ZRH', '스위스/취리히');
 
 --airport 추가
 insert into airport values('ICN', '인천국제공항');
@@ -42,12 +48,12 @@ insert into passenger values('HW123','한현후',990516,'010-6543-7418');
 insert into passenger values('MJ872','김민준',971027,'010-9009-8888');
 
 --flight 추가
-insert into flight values('KAL-001','2022-09-10',27,1445,'KR','JP','HND');
-insert into flight values('KAL-002','2022-09-25',41,2225,'KR','TW','TPE');
+insert into flight values('KAL-001','2022-09-10',27,1445,'KR/ICU','JP/HND');
+insert into flight values('KAL-002','2022-09-25',41,2225,'KR/CJU','TW/TPE');
 --ticket 추가
-insert into ticket values('ticket-001','KAL-001','SJ960',27,'51D',1415,'KR','JP');
-insert into ticket values('ticket-002','KAL-001','SJ777',27,'51C',1415,'KR','JP');
-insert into ticket values('ticket-003','KAL-002','SH987',41,'15A',2225,'KR','TW');
+insert into ticket values('ticket-001','KAL-001','SJ960',27,'51D',1415,'KR/ICH','JP/HND');
+insert into ticket values('ticket-002','KAL-001','SJ777',27,'51C',1415,'KR/CJU','JP/NRT');
+insert into ticket values('ticket-003','KAL-002','SH987',41,'15A',2225,'KR/ICH','TW/TPE');
 
 --모든 승객 다 조회하는 select 문 
 select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
@@ -62,4 +68,4 @@ from ticket
 join passenger on ticket.name=passenger.passport
 join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code
-where ticket.flight_num='KAL-001';
+where ticket.arrive_nation='TW';
