@@ -56,7 +56,6 @@ insert into passenger values('SJ312','김수정',100,'010-5622-1266');
 insert into passenger values('BO650','김병오',47,'010-8544-2135');
 insert into passenger values('DH926','김도희',55,'010-7161-1253');
 insert into passenger values('aa001','테스트',71,'010-3333-1253');
-
 --flight 추가
 
 insert into flight values('KAL-001','2022-09-10 14:45',27,'KR/ICN','JP/HND');
@@ -70,8 +69,6 @@ insert into flight values('OZ-004','2022-10-21 20:30',20,'KR/ICN','IT/FCO');
 insert into flight values('KAL-005','2022-11-09 08:20',31,'KR/ICN','DE/HHH');
 insert into flight values('OZ-005','2022-11-10 22:00',24,'KR/ICN','CH/ZRH');
 insert into flight values('7C-001','2022-09-05 09:00',02,'KR/ICN','KR/CJU');
-
---페신저에 나이를 추가하거나
 
 --ticket 추가
 insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-001','SJ960',27,'51D','2022-09-10 14:45','KR/ICN','JP/HND');
@@ -127,39 +124,36 @@ join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code
 where ticket.flight_num='7C-001';
 
-create view passinfo as select passenger.name passname, flight.flight_num flightnum, passenger.birth age
-from ticket
-join flight on ticket.flight_num=flight.flight_num
-join passenger on ticket.name=passenger.passport;
-
-select * from passinfo;
-
-select flightnum 비행기편, max(age) 나이
-from passinfo
-group by flightnum;
-
---drop view pass_max_age;
-create view pass_max_age as
-select flightnum flightname, max(age) maxage
-from passinfo
-group by flightnum;
-
-select * from pass_max_age;
-
-select * from passinfo
-where flightnum=(select flightname from pass_max_age) 
-and age=(select maxage from pass_max_age);
-
-select flightnum, age, passname
-from passinfo
-where age=(select max(age) from pass_max_age);
-
-select ticket.name, passinfo.flightnum, passenger.birth 
+--각 항공편 마다 나이가 제일 많은 승객 찾기.
+select ticket.name passname, passenger.birth age, flight.flight_num flightname
 from ticket
 join passenger on ticket.name=passenger.passport
-where passenger.birth=passinfo.max(age);
+join flight on ticket.flight_num=flight.flight_num;
+--group by ticket.name, flight.flight_num;
 
+drop view max_age;
+create view max_age as
+select passenger.name passname, passenger.birth age, flight.flight_num flightname
+from ticket
+join passenger on ticket.name=passenger.passport
+join flight on ticket.flight_num=flight.flight_num;
 
-select name,avgprice 
-from food_avg_price 
-where avgprice=(select min(avgprice) from food_avg_price);
+select * from max_age;
+
+select flightname, max(age)
+from max_age
+group by flightname;
+
+drop view print_name;
+create view print_name as
+select flightname, max(age) maxage
+from max_age
+group by flightname;
+
+select * from print_name;
+
+select passname, age, print_name.flightname
+from print_name
+join max_age
+on print_name.flightname = max_age.flightname
+and print_name.maxage = max_age.age;
