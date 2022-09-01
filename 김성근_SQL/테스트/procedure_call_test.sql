@@ -7,5 +7,9 @@ select * from ticket where flight_num='KAL-005';
 exec update_ticket_seat('ticket-033', '99D');
 select * from ticket where flight_num='KAL-005';
 
+exec add_arrived('KR/TAE','대한민국/대구');
+
+select * from arrive_nation;
+
 
 

@@ -1,20 +1,14 @@
 --create
 
 --drop procedure add_ticket;
-create or replace procedure add_ticket
+create or replace procedure add_arrived
 (
-t_num in varchar2,
-f_num in varchar2,
-name in varchar2,
-gate in number,
-seat in varchar2,
-dated date,
-depart_nation varchar2,
-arrive_nation varchar2
+code varchar2,
+name varchar2
 )
 is begin
-insert into ticket values(t_num, f_num, name, gate, seat, dated, depart_nation, arrive_nation);
-end add_ticket;
+insert into arrive_nation values(code, name);
+end add_arrived;
 
 /
 --delete

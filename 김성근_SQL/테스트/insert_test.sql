@@ -25,37 +25,37 @@ insert into arrive_nation values('DE/HHH', '독일/프랑크푸르트');
 insert into arrive_nation values('CH/ZRH', '스위스/취리히');
 
 --passenger 추가
-insert into passenger values('SJ960','안서준',960522,'010-9465-7709');
-insert into passenger values('SJ777','이정석',951227,'010-1115-9999');
-insert into passenger values('SH987','이승호',960522,'010-5156-9977');
-insert into passenger values('MW305','김민우',960301,'010-1234-7895');
-insert into passenger values('HM458','최효민',901005,'010-3214-9876');
-insert into passenger values('JH667','배재현',890427,'010-4567-6543');
-insert into passenger values('HW123','한현후',990516,'010-6543-7418');
-insert into passenger values('MJ872','김민준',971027,'010-9009-8888');
-insert into passenger values('TY446','장태연',951120,'010-4945-7236');
-insert into passenger values('SZ996','송지원',960914,'010-2233-4411');
-insert into passenger values('YY411','윤예일',910430,'010-7755-3369');
-insert into passenger values('CH119','채상혁',971113,'010-5471-6664');
-insert into passenger values('JY454','정용운',950909,'010-4521-1614');
-insert into passenger values('GA777','곽지원',950904,'010-4451-6771');
-insert into passenger values('MW123','최유석',950211,'010-4778-8774');
-insert into passenger values('JH852','문지호',900101,'010-7891-1234');
-insert into passenger values('PK557','박재성',890522,'010-5068-4741');
-insert into passenger values('SY004','송용수',951115,'010-7412-6678');
-insert into passenger values('KI112','김계영',951118,'010-3214-3369');
-insert into passenger values('KL447','김경엽',951115,'010-7412-6678');
-insert into passenger values('SG524','김성근',960116,'010-5242-4439');
-insert into passenger values('SI119','어수일',951109,'010-2052-9645');
-insert into passenger values('SM223','이상목',950203,'010-9509-2095');
-insert into passenger values('HT605','안현태',950304,'010-5312-5239');
-insert into passenger values('GM653','최규민',950907,'010-7521-1452');
-insert into passenger values('YH732','최윤흠',991230,'010-2435-5626');
-insert into passenger values('MY434','박민주',960427,'010-9543-2463');
-insert into passenger values('SJ312','김수정',951217,'010-5622-1266');
-insert into passenger values('BO650','김병오',880619,'010-8544-2135');
-insert into passenger values('DH926','김도희',830925,'010-7161-1253');
-insert into passenger values('aa001','테스트',333333,'010-3333-1253');
+insert into passenger values('SJ960','안서준',27,'010-9465-7709');
+insert into passenger values('SJ777','이정석',28,'010-1115-9999');
+insert into passenger values('SH987','이승호',27,'010-5156-9977');
+insert into passenger values('MW305','김민우',27,'010-1234-7895');
+insert into passenger values('HM458','최효민',47,'010-3214-9876');
+insert into passenger values('JH667','배재현',82,'010-4567-6543');
+insert into passenger values('HW123','한현후',14,'010-6543-7418');
+insert into passenger values('MJ872','김민준',47,'010-9009-8888');
+insert into passenger values('TY446','장태연',54,'010-4945-7236');
+insert into passenger values('SZ996','송지원',22,'010-2233-4411');
+insert into passenger values('YY411','윤예일',29,'010-7755-3369');
+insert into passenger values('CH119','채상혁',8,'010-5471-6664');
+insert into passenger values('JY454','정용운',6,'010-4521-1614');
+insert into passenger values('GA777','곽지원',45,'010-4451-6771');
+insert into passenger values('MW123','최유석',71,'010-4778-8774');
+insert into passenger values('JH852','문지호',44,'010-7891-1234');
+insert into passenger values('PK557','박재성',14,'010-5068-4741');
+insert into passenger values('SY004','송용수',24,'010-7412-6678');
+insert into passenger values('KI112','김계영',26,'010-3214-3369');
+insert into passenger values('KL447','김경엽',27,'010-7412-6678');
+insert into passenger values('SG524','김성근',24,'010-5242-4439');
+insert into passenger values('SI119','어수일',31,'010-2052-9645');
+insert into passenger values('SM223','이상목',34,'010-9509-2095');
+insert into passenger values('HT605','안현태',18,'010-5312-5239');
+insert into passenger values('GM653','최규민',21,'010-7521-1452');
+insert into passenger values('YH732','최윤흠',7,'010-2435-5626');
+insert into passenger values('MY434','박민주',33,'010-9543-2463');
+insert into passenger values('SJ312','김수정',100,'010-5622-1266');
+insert into passenger values('BO650','김병오',47,'010-8544-2135');
+insert into passenger values('DH926','김도희',55,'010-7161-1253');
+insert into passenger values('aa001','테스트',71,'010-3333-1253');
 
 --flight 추가
 
@@ -71,6 +71,7 @@ insert into flight values('KAL-005','2022-11-09 08:20',31,'KR/ICN','DE/HHH');
 insert into flight values('OZ-005','2022-11-10 22:00',24,'KR/ICN','CH/ZRH');
 insert into flight values('7C-001','2022-09-05 09:00',02,'KR/ICN','KR/CJU');
 
+--페신저에 나이를 추가하거나
 
 --ticket 추가
 insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-001','SJ960',27,'51D','2022-09-10 14:45','KR/ICN','JP/HND');
@@ -105,7 +106,9 @@ insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-005','MY
 insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-005','GA777',31,'11D','2022-11-09 08:20','KR/ICN','DE/HHH');
 
 --컬럼명 변경 없이 전부 조회하는 select 문
-select * from ticket;
+select * from ticket
+order by flight_num;
+
 
 --모든 승객 다 조회하는 select 문 
 select ticket.flight_num as 탑승편, passenger.name as 승객명, dated as 출발시간, gate as "탑승 게이트",
@@ -123,3 +126,40 @@ join passenger on ticket.name=passenger.passport
 join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code
 where ticket.flight_num='7C-001';
+
+create view passinfo as select passenger.name passname, flight.flight_num flightnum, passenger.birth age
+from ticket
+join flight on ticket.flight_num=flight.flight_num
+join passenger on ticket.name=passenger.passport;
+
+select * from passinfo;
+
+select flightnum 비행기편, max(age) 나이
+from passinfo
+group by flightnum;
+
+--drop view pass_max_age;
+create view pass_max_age as
+select flightnum flightname, max(age) maxage
+from passinfo
+group by flightnum;
+
+select * from pass_max_age;
+
+select * from passinfo
+where flightnum=(select flightname from pass_max_age) 
+and age=(select maxage from pass_max_age);
+
+select flightnum, age, passname
+from passinfo
+where age=(select max(age) from pass_max_age);
+
+select ticket.name, passinfo.flightnum, passenger.birth 
+from ticket
+join passenger on ticket.name=passenger.passport
+where passenger.birth=passinfo.max(age);
+
+
+select name,avgprice 
+from food_avg_price 
+where avgprice=(select min(avgprice) from food_avg_price);
