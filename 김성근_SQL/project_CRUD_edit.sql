@@ -127,9 +127,10 @@ join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code;
 
 --특정 비행기만 타는 승객들 조회하는 select 문 
-select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
+select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지-- flight.departure_time 시간
 from ticket
 join passenger on ticket.name=passenger.passport
 join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code
+--join flight on ticket.flight_num=flight.flight_num
 where ticket.flight_num='7C-001';

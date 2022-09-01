@@ -7,12 +7,14 @@
 - fk 최소 하나 이상
 
 - group by 최소 하나 이상
-
 - having 최소 하나 이상
+(목적지가 JP/NRT인 사람끼리 group by 후 having에서 출발지가 제주인 사람만 따로 분류)
 
 - join 최소 하나 이상
 
+
 - view 최소 1개 이상
+
 
 - 중첩 질의 최소 1개 이상
 
