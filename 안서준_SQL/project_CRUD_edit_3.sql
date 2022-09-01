@@ -104,3 +104,28 @@ insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-005','GA
 
 select * from ticket
 order by flight_num;
+
+
+--create view
+create view ticket_all as
+select ticket.ticket_num as 탑승편, flight_num 항공번호, passenger.name as 승객명, passenger.birth 나이, 
+passenger.passport 여권번호, ticket.dated as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
+from ticket
+join passenger on ticket.name=passenger.passport
+join depart_nation on ticket.depart_nation=depart_nation.code
+join arrive_nation on ticket.arrive_nation=arrive_nation.code;
+
+select * from ticket_all;
+
+-- drop view max_age;
+create view max_age as 
+select passenger.name, 나이, 항공번호
+from ticket_all join passenger on ticket_all.여권번호 = passenger.passport;
+
+--
+select ticket.ticket_num as 탑승편, ticket.flight_num, passenger.name as 승객명, passenger.birth 나이,
+passenger.passport as 여권번호, ticket.dated as 탑승시간, gate as 게이트, seat 좌석번호, depart_nation.name 출발지, arrive_nation 목적지 
+from ticket
+join passenger on ticket.name = passenger.passport
+join depart_nation on ticket.depart_nation = depart_nation.code
+join arrive_nation on ticket.arrive_nation = arrive_nation.code;
