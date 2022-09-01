@@ -131,7 +131,7 @@ join passenger on ticket.name=passenger.passport
 join flight on ticket.flight_num=flight.flight_num;
 --group by ticket.name, flight.flight_num;
 
-drop view max_age;
+--drop view max_age;
 create view max_age as
 select passenger.name passname, passenger.birth age, flight.flight_num flightname
 from ticket
@@ -144,7 +144,7 @@ select flightname, max(age)
 from max_age
 group by flightname;
 
-drop view print_name;
+--drop view print_name;
 create view print_name as
 select flightname, max(age) maxage
 from max_age
