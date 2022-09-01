@@ -9,7 +9,7 @@ boarding number,
 depart_nation varchar2(30),
 arrive_nation varchar2(30));
 
---drop table flight
+--drop table flight;
 create table flight(
 flight_num varchar2(30) primary key,
 dated date,
@@ -45,9 +45,9 @@ name varchar2(30));
 alter table ticket add constraint fk_name foreign key(name) references passenger(passport); 
 alter table ticket add constraint fk_depnation foreign key(depart_nation) references depart_nation(code);
 alter table ticket add constraint fk_arrivenation foreign key(arrive_nation) references arrive_nation(code);
+alter table ticket add constraint fk_flight_num foreign key(flight_num) references flight(flight_num);
 
 alter table flight add constraint fk_departure foreign key(depart_nation) references depart_nation(code);
 alter table flight add constraint fk_arrived foreign key(arrive_nation) references arrive_nation(code);
 
---
-alter table ticket add constraint fk_fligth_num foreign key(flight_num) references flight(flight_num);
+
