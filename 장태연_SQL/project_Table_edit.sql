@@ -49,4 +49,4 @@ alter table ticket add constraint fk_arrivenation foreign key(arrive_nation) ref
 alter table flight add constraint fk_departure foreign key(depart_nation) references depart_nation(code);
 alter table flight add constraint fk_arrived foreign key(arrive_nation) references arrive_nation(code);
 
-
+create sequence ticket_seq;

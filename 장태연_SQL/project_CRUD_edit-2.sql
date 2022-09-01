@@ -115,6 +115,9 @@ insert into ticket values('ticket-028','KAL-004','DH926',15,'05A',0800,'KR/ICN',
 insert into ticket values('ticket-029','KAL-005','MY434',31,'02D',2130,'KR/ICN','CH/ZRH');
 --insert into ticket values('ticket-030','KAL-005','GA777',38,'11D',0830,'KR/ICN','KR/CJU');
 
+--시퀀스
+insert into ticket values(('ticket-'||lpad(ticket_seq.nextval,4, 0)),'KAL-005','aa001',38,'11D',0830,'KR/ICN','KR/CJU');
+
 --컬럼명 변경 없이 전부 조회하는 select 문
 select * from ticket;
 
