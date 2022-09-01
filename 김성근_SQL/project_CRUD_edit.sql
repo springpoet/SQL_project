@@ -70,24 +70,25 @@ insert into passenger values('BO650','김병오',880619,'010-8544-2135');
 insert into passenger values('DH926','김도희',830925,'010-7161-1253');
 
 --flight 추가
-insert into flight values('7C-001','2022-09-05',02,0900,'KR/ICN','KR/CJU');
+
 insert into flight values('KAL-001','2022-09-10',27,1445,'KR/ICN','JP/HND');
-insert into flight values('KAL-002','2022-09-25',07,0715,'KR/CJU','JP/NRT');
+insert into flight values('KAL-002','2022-09-25',07,0715,'KR/ICN','JP/NRT');
 insert into flight values('KAL-003','2022-09-17',41,2225,'KR/CJU','JP/NRT');
 insert into flight values('KAL-004','2022-09-17',15,0830,'KR/ICN','US/LAX');
 insert into flight values('OZ-001','2022-10-01',22,0600,'KR/ICN','US/JFK');
 insert into flight values('OZ-002','2022-10-10',23,0530,'KR/ICN','GB/LHR');
-insert into flight values('OZ-003','2022-09-31',26,0730,'KR/ICN','TW/TPE');
+insert into flight values('OZ-003','2022-09-30',26,0730,'KR/ICN','TW/TPE');
 insert into flight values('OZ-004','2022-10-21',20,2030,'KR/ICN','IT/FCO');
 insert into flight values('KAL-005','2022-11-09',31,1820,'KR/ICN','DE/HHH');
 insert into flight values('OZ-005','222-11-10',24,2200,'KR/ICN','CH/ZRH');
+insert into flight values('7C-001','2022-09-05',02,0900,'KR/ICN','KR/CJU');
 
 
 --ticket 추가
 insert into ticket values('ticket-001','KAL-001','SJ960',27,'51D',1415,'KR/ICN','JP/HND');
-insert into ticket values('ticket-002','KAL-001','SJ777',27,'51C',1415,'KR/CJU','JP/HND');
-insert into ticket values('ticket-003','KAL-002','SH987',07,'15A',0645,'KR/ICN','TW/TPE');
-insert into ticket values('ticket-004','KAL-002','MW305',07,'34C',0645,'KR/ICN','TW/TPE');
+insert into ticket values('ticket-002','KAL-001','SJ777',27,'51C',1415,'KR/ICN','JP/HND');
+insert into ticket values('ticket-003','KAL-002','SH987',07,'15A',0645,'KR/ICN','JP/NRT');
+insert into ticket values('ticket-004','KAL-002','MW305',07,'34C',0645,'KR/ICN','JP/NRT');
 insert into ticket values('ticket-005','KAL-003','HM458',41,'01A',2155,'KR/CJU','JP/NRT');
 insert into ticket values('ticket-006','KAL-003','JH667',41,'26D',2155,'KR/CJU','JP/NRT');
 insert into ticket values('ticket-007','KAL-004','HW123',15,'22B',0800,'KR/ICN','US/LAX');
@@ -109,11 +110,11 @@ insert into ticket values('ticket-022','OZ-004','SM223',20,'11C',2000,'KR/ICN','
 insert into ticket values('ticket-023','OZ-005','HT605',24,'46D',2130,'KR/ICN','CH/ZRH');
 insert into ticket values('ticket-024','OZ-005','GM653',24,'32A',2130,'KR/ICN','CH/ZRH');
 insert into ticket values('ticket-025','KAL-001','YH732',27,'15E',1415,'KR/ICN','JP/HND');
-insert into ticket values('ticket-026','KAL-002','SJ312',07,'29D',0645,'KR/ICN','TW/TPE');
-insert into ticket values('ticket-027','KAL-003','BO650',41,'41A',2155,'KR/ICN','JP/NRT');
+insert into ticket values('ticket-026','KAL-002','SJ312',07,'29D',0645,'KR/ICN','JP/NRT');
+insert into ticket values('ticket-027','KAL-003','BO650',41,'41A',2155,'KR/CJU','JP/NRT');
 insert into ticket values('ticket-028','KAL-004','DH926',15,'05A',0800,'KR/ICN','US/LAX');
-insert into ticket values('ticket-029','KAL-005','MY434',31,'02D',2130,'KR/ICN','CH/ZRH');
---insert into ticket values('ticket-030','KAL-005','GA777',38,'11D',0830,'KR/ICN','KR/CJU');
+insert into ticket values('ticket-029','KAL-005','MY434',31,'02D',1550,'KR/ICN','DE/HHH');
+insert into ticket values('ticket-030','KAL-005','GA777',31,'11D',1550,'KR/ICN','DE/HHH');
 
 --컬럼명 변경 없이 전부 조회하는 select 문
 select * from ticket;
@@ -125,10 +126,10 @@ join passenger on ticket.name=passenger.passport
 join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code;
 
---대만/타오위안 행 비행기만 타는 승객들 조회하는 select 문 
+--특정 비행기만 타는 승객들 조회하는 select 문 
 select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
 from ticket
 join passenger on ticket.name=passenger.passport
 join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code
-where ticket.arrive_nation='TW/TPE';
+where ticket.flight_num='7C-001';
