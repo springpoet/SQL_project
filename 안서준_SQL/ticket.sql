@@ -50,4 +50,8 @@ alter table ticket add constraint fk_flight_num foreign key(flight_num) referenc
 alter table flight add constraint fk_departure foreign key(depart_nation) references depart_nation(code);
 alter table flight add constraint fk_arrived foreign key(arrive_nation) references arrive_nation(code);
 
+alter session set nls_date_format='YYYY/MM/DD HH24:MI'; -- ex) 2022-09-01 01:10' 
 
+
+--sequence 생성
+create sequence ticket_seq;

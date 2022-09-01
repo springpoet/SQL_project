@@ -69,6 +69,8 @@ insert into passenger values('SJ312','김수정',951217,'010-5622-1266');
 insert into passenger values('BO650','김병오',880619,'010-8544-2135');
 insert into passenger values('DH926','김도희',830925,'010-7161-1253');
 
+insert into passenger values('AA001','이인규',841925,'010-7161-1253'); -- sequence 확인용
+
 --flight 추가
 
 insert into flight values('KAL-001','2022-09-10',27,1445,'KR/ICN','JP/HND');
@@ -84,52 +86,63 @@ insert into flight values('OZ-005','222-11-10',24,2200,'KR/ICN','CH/ZRH');
 insert into flight values('7C-001','2022-09-05',02,0900,'KR/ICN','KR/CJU');
 
 
+
 --ticket 추가
-insert into ticket values('ticket-001','KAL-001','SJ960',27,'51D',1415,'KR/ICN','JP/HND');
-insert into ticket values('ticket-002','KAL-001','SJ777',27,'51C',1415,'KR/ICN','JP/HND');
-insert into ticket values('ticket-003','KAL-002','SH987',07,'15A',0645,'KR/ICN','JP/NRT');
-insert into ticket values('ticket-004','KAL-002','MW305',07,'34C',0645,'KR/ICN','JP/NRT');
-insert into ticket values('ticket-005','KAL-003','HM458',41,'01A',2155,'KR/CJU','JP/NRT');
-insert into ticket values('ticket-006','KAL-003','JH667',41,'26D',2155,'KR/CJU','JP/NRT');
-insert into ticket values('ticket-007','KAL-004','HW123',15,'22B',0800,'KR/ICN','US/LAX');
-insert into ticket values('ticket-008','KAL-004','MJ872',15,'22A',0800,'KR/ICN','US/LAX');
-insert into ticket values('ticket-009','KAL-004','TY446',15,'22C',0800,'KR/ICN','US/LAX');
-insert into ticket values('ticket-010','KAL-004','SZ996',15,'22D',0800,'KR/ICN','US/LAX');
-insert into ticket values('ticket-011','KAL-005','YY411',31,'02A',1550,'KR/ICN','DE/HHH');
-insert into ticket values('ticket-012','KAL-005','CH119',31,'19D',1550,'KR/ICN','DE/HHH');
-insert into ticket values('ticket-013','7C-001','JY454',02,'30A',0830,'KR/ICN','KR/CJU');
-insert into ticket values('ticket-014','7C-001','MW123',02,'30B',0830,'KR/ICN','KR/CJU');
-insert into ticket values('ticket-015','OZ-001','JH852',22,'18D',0530,'KR/ICN','US/JFK');
-insert into ticket values('ticket-016','OZ-001','PK557',22,'05C',0530,'KR/ICN','US/JFK');
-insert into ticket values('ticket-017','OZ-002','SY004',23,'11D',0500,'KR/ICN','GB/LHR');
-insert into ticket values('ticket-018','OZ-002','KI112',23,'16A',0500,'KR/ICN','GB/LHR');
-insert into ticket values('ticket-019','OZ-003','KL447',26,'20E',0700,'KR/ICN','TW/TPE');
-insert into ticket values('ticket-020','OZ-003','SG524',26,'29A',0700,'KR/ICN','TW/TPE');
-insert into ticket values('ticket-021','OZ-004','SI119',20,'11D',2000,'KR/ICN','IT/FCO');
-insert into ticket values('ticket-022','OZ-004','SM223',20,'11C',2000,'KR/ICN','IT/FCO');
-insert into ticket values('ticket-023','OZ-005','HT605',24,'46D',2130,'KR/ICN','CH/ZRH');
-insert into ticket values('ticket-024','OZ-005','GM653',24,'32A',2130,'KR/ICN','CH/ZRH');
-insert into ticket values('ticket-025','KAL-001','YH732',27,'15E',1415,'KR/ICN','JP/HND');
-insert into ticket values('ticket-026','KAL-002','SJ312',07,'29D',0645,'KR/ICN','JP/NRT');
-insert into ticket values('ticket-027','KAL-003','BO650',41,'41A',2155,'KR/CJU','JP/NRT');
-insert into ticket values('ticket-028','KAL-004','DH926',15,'05A',0800,'KR/ICN','US/LAX');
-insert into ticket values('ticket-029','KAL-005','MY434',31,'02D',1550,'KR/ICN','DE/HHH');
-insert into ticket values('ticket-030','KAL-005','GA777',31,'11D',1550,'KR/ICN','DE/HHH');
+--delete from ticket;
+insert into ticket values('ticket-001','KAL-001','SJ960',27,'51D','2022-09-10 14:45','KR/ICN','JP/HND');
+insert into ticket values('ticket-002','KAL-001','SJ777',27,'51C','2022-09-10 14:45','KR/ICN','JP/HND');
+insert into ticket values('ticket-003','KAL-002','SH987',07,'15A','2022-09-25 07:15','KR/ICN','JP/NRT');
+insert into ticket values('ticket-004','KAL-002','MW305',07,'34C','2022-09-25 07:15','KR/ICN','JP/NRT');
+insert into ticket values('ticket-005','KAL-003','HM458',41,'01A','2022-09-17 22:25','KR/CJU','JP/NRT');
+insert into ticket values('ticket-006','KAL-003','JH667',41,'26D','2022-09-17 22:25','KR/CJU','JP/NRT');
+insert into ticket values('ticket-007','KAL-004','HW123',15,'22B','2022-09-17 08:30','KR/ICN','US/LAX');
+insert into ticket values('ticket-008','KAL-004','MJ872',15,'22A','2022-09-17 08:30','KR/ICN','US/LAX');
+insert into ticket values('ticket-009','KAL-004','TY446',15,'22C','2022-09-17 08:30','KR/ICN','US/LAX');
+insert into ticket values('ticket-010','KAL-004','SZ996',15,'22D','2022-09-17 08:30','KR/ICN','US/LAX');
+insert into ticket values('ticket-011','KAL-005','YY411',31,'02A','2022-11-09 08:20','KR/ICN','DE/HHH');
+insert into ticket values('ticket-012','KAL-005','CH119',31,'19D','2022-11-09 08:20','KR/ICN','DE/HHH');
+insert into ticket values('ticket-013','7C-001','JY454',02,'30A','2022-09-05 09:00','KR/ICN','KR/CJU');
+insert into ticket values('ticket-014','7C-001','MW123',02,'30B','2022-09-05 09:00','KR/ICN','KR/CJU');
+insert into ticket values('ticket-015','OZ-001','JH852',22,'18D','2022-10-01 06:00','KR/ICN','US/JFK');
+insert into ticket values('ticket-016','OZ-001','PK557',22,'05C','2022-10-01 06:00','KR/ICN','US/JFK');
+insert into ticket values('ticket-017','OZ-002','SY004',23,'11D','2022-10-10 05:30','KR/ICN','GB/LHR');
+insert into ticket values('ticket-018','OZ-002','KI112',23,'16A','2022-10-10 05:30','KR/ICN','GB/LHR');
+insert into ticket values('ticket-019','OZ-003','KL447',26,'20E','2022-09-30 07:30','KR/ICN','TW/TPE');
+insert into ticket values('ticket-020','OZ-003','SG524',26,'29A','2022-09-30 07:30','KR/ICN','TW/TPE');
+insert into ticket values('ticket-021','OZ-004','SI119',20,'11D','2022-10-21 20:30','KR/ICN','IT/FCO');
+insert into ticket values('ticket-022','OZ-004','SM223',20,'11C','2022-10-21 20:30','KR/ICN','IT/FCO');
+insert into ticket values('ticket-023','OZ-005','HT605',24,'46D','2022-11-10 22:00','KR/ICN','CH/ZRH');
+insert into ticket values('ticket-024','OZ-005','GM653',24,'32A','2022-11-10 22:00','KR/ICN','CH/ZRH');
+insert into ticket values('ticket-025','KAL-001','YH732',27,'15E','2022-09-10 14:45','KR/ICN','JP/HND');
+insert into ticket values('ticket-026','KAL-002','SJ312',07,'29D','2022-09-25 07:15','KR/ICN','JP/NRT');
+insert into ticket values('ticket-027','KAL-003','BO650',41,'41A','2022-09-17 22:25','KR/CJU','JP/NRT');
+insert into ticket values('ticket-028','KAL-004','DH926',15,'05A','2022-09-17 08:30','KR/ICN','US/LAX');
+insert into ticket values('ticket-029','KAL-005','MY434',31,'02D','2022-11-09 08:20','KR/ICN','DE/HHH');
+insert into ticket values('ticket-030','KAL-005','GA777',31,'11D','2022-11-09 08:20','KR/ICN','DE/HHH');
+
+insert into ticket values('ticket-031','KAL-005','GA777',19,'14D','2022-09-01 14:30','KR/ICN','US/LAX');
+
+insert into ticket values(('ticket-'||lpad(ticket_seq.nextval, 4, 0)),'KAL-005','AA001',38,'11D',0830,'KR/ICN','KR/CJU');
+
+--delete from ticket where ticket_num = 'ticket-0004';
 
 --컬럼명 변경 없이 전부 조회하는 select 문
 select * from ticket;
+-- 
+commit;
+--
 
---모든 승객 다 조회하는 select 문 
-select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
+-- view
+--drop view ticket_all;
+create view ticket_all as
+select ticket.ticket_num as 탑승편, flight_num 항공번호, passenger.name as 승객명, 
+passenger.passport 여권번호, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
 from ticket
 join passenger on ticket.name=passenger.passport
 join depart_nation on ticket.depart_nation=depart_nation.code
 join arrive_nation on ticket.arrive_nation=arrive_nation.code;
 
---특정 비행기만 타는 승객들 조회하는 select 문 
-select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
-from ticket
-join passenger on ticket.name=passenger.passport
-join depart_nation on ticket.depart_nation=depart_nation.code
-join arrive_nation on ticket.arrive_nation=arrive_nation.code
-where ticket.flight_num='7C-001';
+
+---
+
+select * from ticket_all;
