@@ -25,4 +25,13 @@
 
 
 
-병원
+sequence - ticket_seq,
+
+view - ticket_all,
+
+중첩 질의 - 
+
+group by - 
+having 
+
+
