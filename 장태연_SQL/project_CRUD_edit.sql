@@ -118,7 +118,17 @@ insert into ticket values('ticket-029','KAL-005','MY434',31,'02D',2130,'KR/ICN',
 --컬럼명 변경 없이 전부 조회하는 select 문
 select * from ticket;
 
---모든 승객 다 조회하는 select 문 탑승편, 승객명, 탑승시간, 탑승게이트, 좌석번호, 출발지, 목적지
+--모든 승객 다 조회하는 select 문 
+select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
+from ticket
+join passenger on ticket.name=passenger.passport
+join depart_nation on ticket.depart_nation=depart_nation.code
+join arrive_nation on ticket.arrive_nation=arrive_nation.code;
 
-
---대만/타오위안 행 비행기만 타는 승객들 조회하는 select 문 탑승편, 승객명, 탑승시간, 탑승게이트, 좌석번호
+--대만/타오위안 행 비행기만 타는 승객들 조회하는 select 문 
+select ticket.flight_num as 탑승편, passenger.name as 승객명, ticket.boarding as 탑승시간, gate as "탑승 게이트", seat as 좌석번호, depart_nation.name as 출발지 ,arrive_nation.name as 목적지
+from ticket
+join passenger on ticket.name=passenger.passport
+join depart_nation on ticket.depart_nation=depart_nation.code
+join arrive_nation on ticket.arrive_nation=arrive_nation.code
+where ticket.arrive_nation='TW/TPE';
