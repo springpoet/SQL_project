@@ -157,3 +157,19 @@ from print_name
 join max_age
 on print_name.flightname = max_age.flightname
 and print_name.maxage = max_age.age;
+
+alter table flight add(price number);
+
+select * from flight;
+
+update flight set price=90000 where flight_num='KAL-001';
+update flight set price=85000 where flight_num='KAL-002';
+update flight set price=50000 where flight_num='KAL-003';
+update flight set price=2200000 where flight_num='KAL-004';
+update flight set price=3600000 where flight_num='OZ-001';
+update flight set price=2900000 where flight_num='OZ-002';
+update flight set price=465000 where flight_num='OZ-003';
+update flight set price=2700000 where flight_num='OZ-004';
+update flight set price=2500000 where flight_num='KAL-005';
+update flight set price=2100000 where flight_num='OZ-005';
+update flight set price=80000 where flight_num='7C-001';
