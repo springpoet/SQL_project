@@ -126,3 +126,8 @@ update flight set price=2100000 where flight_num='OZ-005';
 update flight set price=80000 where flight_num='7C-001';
 
 select * from flight;
+
+commit;
+--개인 사정으로 항공권 취소
+delete ticket where ticket_num='ticket-030';
+select * from ticket;

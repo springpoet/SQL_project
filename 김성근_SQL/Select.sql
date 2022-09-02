@@ -48,3 +48,10 @@ from print_name
 join max_age
 on print_name.flightname = max_age.flightname
 and print_name.maxage = max_age.age;
+
+--항공편별 총 운임료, 탑승객 수.(총 운임료가 100만 이상인 항공편만 출력)
+select flight.flight_num as 탑승편명, sum(flight.price) as "총 운임료", count(*)||'명' as "인원 수"
+from ticket
+join flight on ticket.flight_num=flight.flight_num
+group by flight.flight_num
+having sum(flight.price) > 1000000;
