@@ -30,3 +30,21 @@ update ticket set seat = changeseat
 where ticket_num = tnum;
 end update_ticket_seat;
 
+/
+
+CREATE OR REPLACE FUNCTION ticket_info (
+ticketinfo in VARCHAR2 ) 
+RETURN VARCHAR2
+IS v_nm varchar2(2048);
+BEGIN 
+    dbms_output.put_line(ticketinfo||'의 정보'); 
+    dbms_output.put_line('이름 : '|| ticket.name); 
+    select ticket.name
+    into v_nm
+    from ticket
+    where ticketinfo=ticket.ticket_num;
+return v_nm;
+end ticket_info;
+    
+/
+select ticket_info('ticket-001') from dual;
