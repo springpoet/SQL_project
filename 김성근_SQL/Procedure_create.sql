@@ -35,16 +35,16 @@ end update_ticket_seat;
 CREATE OR REPLACE FUNCTION ticket_info (
 ticketinfo in VARCHAR2 ) 
 RETURN VARCHAR2
-IS v_nm varchar2(2048);
+IS v_nm varchar2(20);
 BEGIN 
-    dbms_output.put_line(ticketinfo||'의 정보'); 
-    dbms_output.put_line('이름 : '|| ticket.name); 
-    select ticket.name
+    select passenger.name
     into v_nm
     from ticket
+    join passenger on ticket.name = passenger.passport
     where ticketinfo=ticket.ticket_num;
-return v_nm;
+return ticketinfo||'의 승객명은 '||v_nm||'입니다.';
 end ticket_info;
     
 /
-select ticket_info('ticket-001') from dual;
+
+select ticket_info('ticket-020') as 승객정보 from dual;
