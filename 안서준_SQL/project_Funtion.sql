@@ -6,7 +6,7 @@ is
 begin
     change_date := NULL;
     change_date := TO_CHAR(date, 'YYYY-MM-DD HH24:MI');
-    return change_date||' 입니디';
+    return change_date||' 입니다';
 end;
 
 /
