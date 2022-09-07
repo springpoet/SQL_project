@@ -129,5 +129,5 @@ select * from flight;
 
 commit;
 --개인 사정으로 항공권 취소
-delete ticket where ticket_num='ticket-030';
+delete ticket where ticket_num='ticket-020';
 select * from ticket;
