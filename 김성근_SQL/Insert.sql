@@ -72,6 +72,8 @@ insert into flight values('KAL-005','2022-11-09 08:20',31,'KR/ICN','DE/HHH');
 insert into flight values('OZ-005','2022-11-10 22:00',24,'KR/ICN','CH/ZRH');
 insert into flight values('7C-001','2022-09-05 09:00',02,'KR/ICN','KR/CJU');
 
+
+
 --ticket 추가
 insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-001','SJ960',27,'51D','2022-09-10 14:45','KR/ICN','JP/HND');
 insert into ticket values('ticket-'||lpad(ticket_cnt.nextval,3, 0),'KAL-001','SJ777',27,'51C','2022-09-10 14:45','KR/ICN','JP/HND');
