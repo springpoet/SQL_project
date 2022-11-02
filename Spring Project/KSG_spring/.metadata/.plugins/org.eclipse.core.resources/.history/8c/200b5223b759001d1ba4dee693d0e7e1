@@ -1,0 +1,20 @@
+package com.myproject.yse;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AirportServiceImpl implements AirportService {
+
+	@Autowired
+	airportDAO airportdao;
+	
+	@Override
+	public List<String> nation() {
+		// TODO Auto-generated method stub
+		return this.airportdao.sqlSessionTemplate();
+	}
+
+}

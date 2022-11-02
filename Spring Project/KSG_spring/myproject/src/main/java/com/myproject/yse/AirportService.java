@@ -1,5 +1,13 @@
 package com.myproject.yse;
 
-public interface AirportService {
+import java.util.List;
+import java.util.Map;
+
+public interface airportService {
+	
+	List<String> nation();
+
+
+	List<airportDto> flight(String depart);
 
 }
