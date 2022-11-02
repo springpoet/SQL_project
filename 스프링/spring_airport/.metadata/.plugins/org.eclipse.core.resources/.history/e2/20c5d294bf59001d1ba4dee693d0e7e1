@@ -1,0 +1,7 @@
+package com.myproject.yse;
+
+public interface airportService {
+	
+	List<String> nation();
+
+}
