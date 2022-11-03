@@ -206,9 +206,17 @@
 				대구
 				</c:when>
 					</c:choose>
+					
 				</option>
 			</c:forEach>
 		</select> <input type="submit" value="검색">
+	</form>
+	<form action="/Login" method="get">
+		<input type="submit" value="로그인페이지로" />
+	</form>
+
+	<form action="/SignUp" method="get">
+		<input type="submit" value="회원가입" />
 	</form>
 </body>
 </html>

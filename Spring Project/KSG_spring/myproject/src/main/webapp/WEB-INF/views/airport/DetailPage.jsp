@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${data(도착공항)}발 비행기 정보</h1>
 	<form method="post">
 		<c:forEach var="item" items="${data}">
 			<h1>${item['운항편명'] }, ${item['항공사']}</h1>

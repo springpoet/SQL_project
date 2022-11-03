@@ -21,6 +21,11 @@ public class airportServiceImpl implements airportService {
 		// TODO Auto-generated method stub
 		return this.airportdao.flight(depart);
 	}
+	
+	@Override
+	public int sign_up(memberDto member){
+		return this.airportdao.sign_up(member);
+	}
 
 
 }

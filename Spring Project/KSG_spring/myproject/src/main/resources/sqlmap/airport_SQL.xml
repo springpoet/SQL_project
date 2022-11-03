@@ -7,11 +7,17 @@
 	select distinct 도착공항 from airport
 	]]>
 	</select>
-	
-	<select id="main_detail" resultType="com.myproject.yse.airportDto" parameterType="string">
+
+	<select id="main_detail"
+		resultType="com.myproject.yse.airportDto" parameterType="string">
 	<![CDATA[
 	select * from airport where 도착공항=#{depart}
 	]]>
 	</select>
-	
+
+	<insert id="sign_up" parameterType="com.myproject.yse.memberDto">
+	<![CDATA[
+	insert into member values (#{id}, #{pw}, #{name}, #{gender}, #{age})
+	]]>
+	</insert>
 </mapper>

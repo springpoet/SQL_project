@@ -19,10 +19,13 @@ public class airportDAO {
 		return this.sqlSessionTemplate.selectList("airport.main_select");
 	}
 
-
-	
 	public List<airportDto> flight(String depart){
 		
 		return this.sqlSessionTemplate.selectList("airport.main_detail", depart);
 	}
+	
+	public int sign_up(memberDto member){
+		
+	return this.sqlSessionTemplate.insert("airport.sign_up",member);
+} 
 }
