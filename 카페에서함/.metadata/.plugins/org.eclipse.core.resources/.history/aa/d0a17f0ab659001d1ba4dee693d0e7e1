@@ -1,0 +1,13 @@
+package com.myproject.yse;
+
+import java.util.List;
+
+public class AirportServiceImpl implements AirportService {
+
+	@Override
+	public List<String> nation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.myproject.yse;
+
+public class airportDto {
+	private String 도착공항;
+	private String 도착시간;
+	private String 시작일자;
+	private String 운항요일;
+	private String 운항편명;
+	private String 종료일자;
+	private String 출발공항;
+	private String 출발시간;
+	private String 항공사;
+}

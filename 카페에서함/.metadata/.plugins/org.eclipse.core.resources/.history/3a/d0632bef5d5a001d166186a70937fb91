@@ -1,0 +1,24 @@
+package com.myproject.yse;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class airportDAO {
+
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;
+
+	public List<String> nation() {
+		return this.sqlSessionTemplate.selectList("airport.main_select");
+	}
+
+	public List<String> flight(Stirng depart) {
+		// TODO Auto-generated method stub
+		return this.sqlSessionTemplate.selectList("airport.main_detail",depart);
+	}
+
+}
