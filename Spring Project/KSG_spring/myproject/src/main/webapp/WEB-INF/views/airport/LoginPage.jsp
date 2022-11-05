@@ -14,5 +14,6 @@
 	<input type="password" placeHolder="password 입력" name="pw"/> <br/>
 	<input type="submit" value="로그인" />
 	</form>
+	
 </body>
 </html>

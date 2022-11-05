@@ -36,12 +36,14 @@ conn = pymysql.connect(host='localhost',
                        db='skyscanner',
                        charset='utf8')
 
-sql = 'insert into airport values("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s")'
+sql = 'insert into airport2(도착공항, 도착시간, 시작일자, 운항요일, 운항편명, 종료일자, 출발공항, 출발시간, 항공사) values("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s")'
 # sql = 'insert into cccc values("%s", "%s")'
 
 cur = conn.cursor()
-
+a = 0
 for item in json_arr:
+
+
     arr = item['시작일자'].split("-")
     a = arr[0]
     b = int(arr[1]) + 2
