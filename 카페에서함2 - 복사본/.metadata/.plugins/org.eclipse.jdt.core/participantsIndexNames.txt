@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+C:\Users\KB\Desktop\카페에서함2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3502283459.index
+\myproject\src\main\java
+C:\Users\KB\Desktop\카페에서함2 - 복사본\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3502283459.index
+\myproject\src\main\java
+C:\Users\KB\Desktop\카페에서함2 - 복사본\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\245752618.index
+\myproject\src\main\java
+C:\Users\KB\Desktop\카페에서함\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3502283459.index
+\myproject\src\main\java
