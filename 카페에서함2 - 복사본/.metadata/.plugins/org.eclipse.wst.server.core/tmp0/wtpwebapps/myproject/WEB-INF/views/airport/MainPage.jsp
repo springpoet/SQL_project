@@ -57,40 +57,79 @@ body>div.card.text-center {
 .btn{
 	heihgt:50px;
 }
+
+nav {
+   margin-left: auto;
+   top: 0;
+   right: 0;
+   padding: 20px;
+   display: flex;
+   float: right;
+   width: 100%;
+   height:100px;
+}
+
+.navbar {
+   background-color: #000000;
+   margin-bottom:70px;
+}
+
+
 </style>
 
 </head>
 <body>
-		<c:choose>
-					<c:when test="${sessionName eq null }">
-						<form action="/Login" method="get">
-							<input type="submit" value="로그인페이지로" />
-						</form>
-					</c:when>
-					<c:otherwise>
-						<form action="/Mypage" method="get">
-							<input type="submit" value="마이페이지" />
-						</form>
-					</c:otherwise>
-				</c:choose>
+
+<!--  navbar -->
+   <nav class="navbar navbar-dark" float=right;>
+      <div class="container-fluid">
+         <a href="MainPage" class="navbar-brand"><h2 style=font-weight:800;>티켓 컴바인</h2></a>
+
+         <!-- 로그아웃 -->
+         <ul id="nav3" class="nav justify-content-end bg-light">
+            <li class="nav-item">
+               <!-- 로그아웃 --> <c:if test="${sessionName ne null }">
+                  <form action="/Logout" class="d-flex" method="get">
+                     <input type="submit" value="로그아웃" class="btn btn-outline-success" />
+                  </form>
+               </c:if>
+            </li>
+         
+         <!-- 회원가입 -->
+         <li>
+            <form action="/SignUp" method="get"  class="d-flex">
+               <input type="submit" value="회원가입" class="btn btn-outline-success" />
+            </form>
+         </li>
+
+
+            <!-- 로그인 태그 버튼 -->
+            <li class="nav-item"><c:choose>
+                  <c:when test="${sessionName eq null }">
+                     <form action="/Login" class="d-flex" method="get">
+                        <input type="submit" value="로그인페이지로"
+                           class="btn btn-outline-success" />
+                     </form>
+                  </c:when>
+            
+                  <c:otherwise>
+                     <form action="/Mypage" method="get">
+                        <input type="submit" value="마이페이지"
+                           class="btn btn-outline-success"/>
+                     </form>
+                  </c:otherwise>
+               </c:choose>
+            </li>
+         </ul>
+      </div>
+   </nav>
+
+
+	
+			
 				
-				<c:if test="${sessionName ne null }">
-					<form action="/Logout" method="get">
-						<input type="submit" value="로그아웃" />
-					</form>
-				</c:if>
-				<c:if test="${sessionName eq null }">
-				<form action="/SignUp" method="get">
-					<input type="submit" value="회원가입" />
-				</form>
-				</c:if>
 
-	<!-- <h1 style="text-align: center; padding: 50px;">
-		<a href="MainPage ">티켓 컴바인 </a>
-	</h1> -->
-
-
-	<div class="card text-center" style="margin-top: 100px;">
+	<div class="card text-center" style="margin-top: 70px;">
 
 		<div class="card-body">
 			
@@ -98,18 +137,14 @@ body>div.card.text-center {
 	날짜를 입력하세요. <button onclick="location.href='MainPage'">home</button>
 				</c:if>
 
-				<c:choose>
-					<c:when test="${sessionName eq null }">
-						로그인해주세요 ㅎ_ㅎ
-					</c:when>
-					<c:otherwise>
-						<h1 style="color:white;">${sessionName }님 반갑습니다!</h1>
-					</c:otherwise>
-				</c:choose>
+					<c:if test="${sessionName ne null }">
+						<h2 style="color:white; font-weight:700; margin-top:35px;">${sessionName }님 반갑습니다!</h2>
+					</c:if>
+					
 
 				<form action="/MainPage" method="post" style="margin-top:20px;">
 					<div style="background-color:rgba( 5, 18, 42, 0.85 );
-					 height:200px; width:1200px; margin:0 auto; padding:60px; border-radius:8px;">
+					 height:200px; width:1200px; margin:0 auto; padding:60px; border-radius:8px; margin-top:70px;'">
 					<select style="height:50px;" name="depart">
 						<c:forEach var="item" items="${data}">
 							<option value="${item}">
