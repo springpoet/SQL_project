@@ -231,24 +231,42 @@ public class MainController {
 
 		comp = this.airportservice.myticket(id);
 
+		if (comp.size() == 0) {
+			int bookinsert = this.airportservice.book_insert(bdto);
+			
+			System.out.println("comp.size = " + comp.size());
+
+			mav.setViewName("redirect:/MainPage?bookcomplete");
+		}
+		
+		boolean in = false;
 		for (int i = 0; i < comp.size(); i++) {
+			
 			if (ticketnum.equals(comp.get(i).getTicketnum()) && publeYear.equals(comp.get(i).get출발날짜())) {
+				System.out.println(ticketnum.equals(comp.get(i).getTicketnum()));
+				System.out.println(publeYear.equals(comp.get(i).get출발날짜()));
+				System.out.println("i : 선택한 티켓넘 =" + ticketnum + "확인할 티켓넘은="+comp.get(i).getTicketnum());
+				System.out.println("안들어가야함");
+				 in = false;
 				mav.setViewName("redirect:/MainPage?bookfail");
+				break;
 			}
 
 			else {
+				in = true;
 
-				int bookinsert = this.airportservice.book_insert(bdto);
-
+				System.out.println(ticketnum.equals(comp.get(i).getTicketnum()));
+				System.out.println("i : 선택한 티켓넘 =" + ticketnum + "확인할 티켓넘은="+comp.get(i).getTicketnum());
+				System.out.println(publeYear.equals(comp.get(i).get출발날짜()));
+				System.out.println("들어가야함");
 				mav.setViewName("redirect:/MainPage?bookcomplete");
-				break;
+				
 			}
 		}
 
-		if (comp.size() == 0) {
+		if(in) {
+			System.out.println("in은 트루라 쿼리문 실행댐");
 			int bookinsert = this.airportservice.book_insert(bdto);
-
-			mav.setViewName("redirect:/MainPage?bookcomplete");
 		}
 
 		return mav;

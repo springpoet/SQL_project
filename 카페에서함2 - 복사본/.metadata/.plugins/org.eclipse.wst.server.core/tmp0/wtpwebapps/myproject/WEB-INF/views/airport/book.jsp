@@ -27,10 +27,10 @@
 
 	<c:forEach var="item" items="${data }">
 		<div class="card mb-3" style="max-width: 1200px;">
-		
-	  <div class="row g-0">
+		<!-- <a href="bookCheck?ticketnum=${item.get('ticketnum')}&id=${sessionId }&publeYear=${publeYear}"> -->
+	  <div class="row g-0" style="border:1px solid black; border-bottom:none;" >
 	    <div class="col-md-4">
-	      <img src="/resources/img/japan.jpg" class="img-fluid rounded-start" alt="예?">
+	     <img src="/resources/img/japan.jpg" class="img-fluid rounded-start" alt="예?">
 	    </div>
 	    <div class="col-md-8">
 	      <div class="card-body">
@@ -43,7 +43,7 @@
 		</h3> </p>
 	      </div>
 	    </div>
-	  </div>
+	  </div><!-- </a> -->
 	   <button onclick="location.href='bookCheck?ticketnum=${item.get('ticketnum')}&id=${sessionId }&publeYear=${publeYear}'">예매하기</button>
 	  
 	</div>

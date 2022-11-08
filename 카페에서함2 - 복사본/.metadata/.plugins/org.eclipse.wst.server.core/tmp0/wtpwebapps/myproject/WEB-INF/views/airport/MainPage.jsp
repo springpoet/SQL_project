@@ -22,7 +22,7 @@
 <style>
 body {
 	height: 100%;
-	background-color:
+	
 }
 
 h1 {
