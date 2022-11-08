@@ -173,7 +173,7 @@ public class MainController {
 
 			System.out.println("½ÇÆÐ");
 
-			mav.setViewName("airport/LoginPage?fail");
+			mav.setViewName("airport/LoginPage:fail");
 		}
 		return mav;
 

@@ -96,11 +96,14 @@ nav {
             </li>
          
          <!-- 회원가입 -->
+         <c:if test="${sessionName eq null }">
          <li>
             <form action="/SignUp" method="get"  class="d-flex">
                <input type="submit" value="회원가입" class="btn btn-outline-success" />
             </form>
          </li>
+         </c:if>
+         
 
 
             <!-- 로그인 태그 버튼 -->
@@ -378,6 +381,7 @@ nav {
 		$(function() {
 			$("input[name='publeYear']").datepicker(config);
 		});
+	
 	</script>
 
 	<link

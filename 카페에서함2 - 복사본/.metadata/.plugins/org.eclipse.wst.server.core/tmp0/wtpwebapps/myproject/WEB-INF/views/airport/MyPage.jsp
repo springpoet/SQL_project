@@ -43,12 +43,13 @@ nav {
    float: right;
    width: 100%;
    height:100px;
+   margin-bottom:50px;
 }
 
 
 .navbar {
    background-color: #000000;
-   margin-bottom:70px;
+   margin-bottom:50px;
 }
 
 
