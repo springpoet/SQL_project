@@ -61,7 +61,7 @@ body>div.card.text-center {
 
 </head>
 <body>
-<c:choose>
+		<c:choose>
 					<c:when test="${sessionName eq null }">
 						<form action="/Login" method="get">
 							<input type="submit" value="로그인페이지로" />
@@ -79,17 +79,18 @@ body>div.card.text-center {
 						<input type="submit" value="로그아웃" />
 					</form>
 				</c:if>
-
+				<c:if test="${sessionName eq null }">
 				<form action="/SignUp" method="get">
 					<input type="submit" value="회원가입" />
 				</form>
+				</c:if>
 
-	<h1 style="text-align: center; padding: 50px;">
+	<!-- <h1 style="text-align: center; padding: 50px;">
 		<a href="MainPage ">티켓 컴바인 </a>
-	</h1>
+	</h1> -->
 
 
-	<div class="card text-center" style="margin-top: 50px;">
+	<div class="card text-center" style="margin-top: 100px;">
 
 		<div class="card-body">
 			
@@ -208,7 +209,7 @@ body>div.card.text-center {
 						</c:forEach>
 					</select> 
 					
-					<select name="arrive" style="height:50px;">
+					<select name="arrive" style="height:50px; margin-right:5px;">
 						<c:forEach var="item" items="${data}">
 							<option value="${item}">
 								<c:choose>
