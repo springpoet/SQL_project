@@ -7,3 +7,5 @@ C:\Users\KB\Desktop\카페에서함2 - 복사본\.metadata\.plugins\org.eclipse.jst.jsp.
 \myproject\src\main\java
 C:\Users\KB\Desktop\카페에서함\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3502283459.index
 \myproject\src\main\java
+C:\Users\KB\Desktop\카페에서함2 -태연완성\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3502283459.index
+\myproject\src\main\java

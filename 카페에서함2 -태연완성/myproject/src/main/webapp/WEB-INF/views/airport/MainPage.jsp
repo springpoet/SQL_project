@@ -87,6 +87,7 @@ nav {
          <a href="MainPage" class="navbar-brand"><h2 style=font-weight:800;>티켓 컴바인</h2></a>
 			<img src="/resources/img/ramus.png" style="height:50px;"/>
 			</div>
+			<a href="d3data"><img src="/resources/img/d3.png" style="height:60px; "/></a>
          <!-- 로그아웃 -->
          <ul id="nav3" class="nav justify-content-end bg-light">
             <li class="nav-item">
@@ -363,12 +364,6 @@ nav {
 	
 
 		
-
-			
-		
-
-
-
 
 	<script>
 		/* 설정 */

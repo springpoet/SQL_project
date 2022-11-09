@@ -68,4 +68,14 @@
 	</select>
 	
 	
+	
+	
+	<!-- d3 -->
+	<select id="d3_data" parameterType="hashMap" resultType="hashMap">
+	<![CDATA[
+	select * from d3data;
+	]]>
+	</select>
+	
+	
 </mapper>

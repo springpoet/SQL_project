@@ -75,5 +75,9 @@ public class airportDAO {
 	public String checkDuplication(String id) {
 		return this.sqlSessionTemplate.selectOne("airport.checkDuple", id);
 	}
+	
+	public List<Map<String,Object>>D3Chart(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectList("airport.d3_data", map);
+	}
 
 }

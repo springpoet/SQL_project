@@ -1,6 +1,7 @@
 package com.myproject.yse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -148,7 +149,7 @@ public class MainController {
 		PasswordEncoder p = new BCryptPasswordEncoder();
 
 		if (p.matches(pw, loginCheck)) {
-
+			
 			MemberDto dtos = this.airportservice.loginInfor(id);
 			// @ModeAttribute("test")
 			HttpSession session = request.getSession();
@@ -301,4 +302,22 @@ public class MainController {
 
 	}
 
+	
+	@RequestMapping(value = "/d3data", method = RequestMethod.GET)
+	public ModelAndView d3data() {
+
+		ModelAndView mav = new ModelAndView();
+		
+		List<Map<String, Object>> d3chart =  this.airportservice.ChartList();
+		
+		mav.addObject("data", d3chart);
+		
+		System.out.println(d3chart);
+		
+		mav.setViewName("airport/d3data");
+		return mav;
+
+	}
+
+	
 }

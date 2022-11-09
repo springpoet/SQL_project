@@ -28,4 +28,6 @@ public interface airportService {
 
 	// 중복 check용 controller에 생성
 	String checkDuplicate(String id);
+	
+	List<Map<String, Object>>ChartList();
 }

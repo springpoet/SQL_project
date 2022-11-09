@@ -70,4 +70,10 @@ public class airportServiceImpl implements airportService {
 		return this.airportdao.checkDuplication(id);
 	}
 
+	@Override
+	public List<Map<String, Object>> ChartList() {
+		// TODO Auto-generated method stub
+		return this.airportdao.D3Chart(null);
+	}
+
 }
