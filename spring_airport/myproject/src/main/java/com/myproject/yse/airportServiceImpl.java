@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myproject.dto.BookDto;
 import com.myproject.dto.MemberDto;
+import com.myproject.dto.TicketDto;
 
 @Service
 public class airportServiceImpl implements airportService {
@@ -20,17 +22,46 @@ public class airportServiceImpl implements airportService {
 	}
 	
 	@Override
-	public List<Map<String, Object>> detail(String depart){
-		return this.airportdao.detail(depart);
+	public List<Map<String, Object>> detail(String depart, String arrive, String publeYear){
+		return this.airportdao.detail(depart, arrive, publeYear);
 	}
-	/*
-	@Override
-	public int signup(Map<String, Object> map){
-		return this.airportdao.signup(map);
-	}*/
+
 	@Override
 	public int sign_up(MemberDto member){
 		return this.airportdao.sign_up(member);
 	}
+	@Override
+	public String login(String id, String pw){
+		return this.airportdao.login(id, pw);
+	}
+	
+	@Override
+	public MemberDto loginInfor(String id){
+		return this.airportdao.loginInformation(id);
+	}
+	
+	@Override
+	public TicketDto ticketInfor(String ticketnum) {
+		System.out.println("!!!!!impl"+ticketnum);
+		return this.airportdao.ticketInformation(ticketnum);
+	}
+	
+	@Override
+	public int book_insert(BookDto bdto) {
+		return this.airportdao.bookInsert(bdto);
+	}
+
+	@Override
+	public List<BookDto> myticket(String attribute) {
+		return this.airportdao.myticket_find(attribute);
+	}
+
+	// 중복체크용 checkDuplicate 생성함
+	@Override
+	public String checkDuplicate(String id) {
+		return this.airportdao.checkDuplication(id);
+	}
+	
+	
 
 }

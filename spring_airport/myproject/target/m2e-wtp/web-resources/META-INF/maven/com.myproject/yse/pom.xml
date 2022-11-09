@@ -153,14 +153,13 @@
 			<version>8.0.19</version>
 		</dependency>
 
-<!-- spring-security-web -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+
 		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-web</artifactId>
-		    <version>${org.springframework-version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.4.5</version>
 		</dependency>
-		
+
 
 		<!-- Test -->
 		<dependency>
