@@ -203,7 +203,7 @@ public class MainController {
 		mav.setViewName("airport/MyPage");
 
 		return mav;
-	}
+	}	
 
 	@RequestMapping(value = "/bookCheck", method = RequestMethod.GET)
 	public ModelAndView bookCheck(@RequestParam String ticketnum, @RequestParam String id,
@@ -229,7 +229,9 @@ public class MainController {
 		bdto.set출발시간(tdto.get출발시간());
 		bdto.set항공사(tdto.get항공사());
 		bdto.set출발날짜(publeYear);
-
+		int bookduplecheck=this.airportservice.bookdupleCheck(ticketnum);
+		
+		
 		int bookinsert = this.airportservice.book_insert(bdto);
 
 		mav.setViewName("redirect:/MainPage?bookcomplete");
@@ -237,6 +239,8 @@ public class MainController {
 		return mav;
 	}
 
+
+	
 	@RequestMapping(value = "/myticketCheck", method = RequestMethod.GET)
 	public ModelAndView TicketCheck(@RequestParam String id) {
 		System.out.println("click");
@@ -244,19 +248,13 @@ public class MainController {
 
 		List<BookDto> bdto = null;
 		bdto = this.airportservice.myticket(id);
-		System.out.println("111111111111"+bdto);
-
-		List<BookDto> bdto2 = new ArrayList<BookDto>();
-		System.out.println("2222222222"+bdto2);
+		System.out.println((String)bdto.get(1).get항공사());
+		System.out.println(bdto.get(0).get도착공항());
 		
-		
-		System.out.println("정체는?"+bdto2);
-		System.out.println("사이즈는?"+bdto.size());
 //		for(int i=0; i<2; i++) {
 //			bdto2.get(i).setId(bdto.get(i).getId());
 //		}
 		
-		System.out.println("!!!!!!!!!!!!!!!!!!"+bdto2);
 		
 		/*
 		bdto2.setId(bdto.getId());

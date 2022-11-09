@@ -78,6 +78,9 @@ public class airportDAO {
 			return this.sqlSessionTemplate.selectOne("airport.checkDuple",id);
 		} 
 		
+		public int bookdupleCheck(String ticketnum) {
+			return this.sqlSessionTemplate.selectOne("airport.bookcheckDuple",ticketnum);
+		}
 		
 		
 }

@@ -18,7 +18,7 @@ public interface airportService {
 	TicketDto ticketInfor(String ticketnum);
 	int book_insert(BookDto bdto);
 	List<BookDto> myticket(String attribute);
-	
+	int bookdupleCheck(String ticketnum);
 	//중복 check용 controller에 생성
 	String checkDuplicate(String id);
 }	

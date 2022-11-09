@@ -68,6 +68,12 @@ public class airportServiceImpl implements airportService {
 	public String checkDuplicate(String id) {
 		return this.airportdao.checkDuplication(id);
 	}
+
+	@Override
+	public int bookdupleCheck(String ticketnum) {
+		// TODO Auto-generated method stub
+		return this.airportdao.bookdupleCheck(ticketnum);
+	}
 	
 	
 

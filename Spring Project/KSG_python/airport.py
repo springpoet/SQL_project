@@ -62,3 +62,7 @@ for item in json_arr:
     # cur.execute(sql % ("a", "11:11", "2022-01-01", "mm", "jj", "2022-03-03", "g", "11:22", "i"))
 conn.commit()
 conn.close()
+
+create table passenger(
+    month varchar(255),
+    count int);

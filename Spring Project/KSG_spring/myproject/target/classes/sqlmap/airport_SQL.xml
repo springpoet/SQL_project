@@ -54,7 +54,7 @@
 	]]>
 	</select>
 	
-	<select id="myticket_find" parameterType="string" resultType="com.myproject.dto.TicketDto">
+	<select id="myticket_find" parameterType="string" resultType="com.myproject.dto.BookDto">
 	<![CDATA[
 	select * from book where id=#{id}
 	]]>
@@ -67,5 +67,10 @@
 	]]>
 	</select>
 	
-	
+	<!-- 예매하기 버튼 중복체크 -->
+	<select id="bookcheckDuple" resultType="com.myproject.dto.BookDto">
+	<![CDATA[
+	select tickectnum from book where tickectnum=#{ticketnum}
+	]]>
+	</select>
 </mapper>
