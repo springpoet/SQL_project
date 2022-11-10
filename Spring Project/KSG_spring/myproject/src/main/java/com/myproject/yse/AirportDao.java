@@ -24,22 +24,13 @@ public class airportDAO {
 
 	public List<Map<String, Object>> detail(String depart, String arrive, String publeYear) {
 		Map<String, Object> nation = new HashMap<String, Object>();
-
 		nation.put("depart", depart);
 		nation.put("arrive", arrive);
 		nation.put("publeYear", publeYear);
-
 		return this.sqlSessionTemplate.selectList("airport.detail_view", nation);
 	}
-	/*
-	 * public int signup(Map<String, Object> map){
-	 * 
-	 * 
-	 * return this.sqlSessionTemplate.insert("airport.sing_up",map); }
-	 */
 
 	public int sign_up(MemberDto member) {
-
 		return this.sqlSessionTemplate.insert("airport.sing_up", member);
 	}
 
@@ -47,23 +38,19 @@ public class airportDAO {
 		Map<String, Object> loginCheck = new HashMap<String, Object>();
 		loginCheck.put("id", id);
 		loginCheck.put("pw", pw);
-
 		return this.sqlSessionTemplate.selectOne("airport.login", loginCheck);
 	}
 
 	public MemberDto loginInformation(String id) {
-
 		return this.sqlSessionTemplate.selectOne("airport.login_infor", id);
 	}
 
 	public TicketDto ticketInformation(String ticketnum) {
-
 		return this.sqlSessionTemplate.selectOne("airport.ticket_infor", ticketnum);
 
 	}
 
 	public int bookInsert(BookDto bdto) {
-
 		return this.sqlSessionTemplate.insert("airport.book_insert", bdto);
 	}
 
@@ -71,7 +58,6 @@ public class airportDAO {
 		return this.sqlSessionTemplate.selectList("airport.myticket_find", id);
 	}
 
-	// 중복체크용
 	public String checkDuplication(String id) {
 		return this.sqlSessionTemplate.selectOne("airport.checkDuple", id);
 	}
