@@ -79,5 +79,17 @@ public class airportDAO {
 	public List<Map<String,Object>>D3Chart(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectList("airport.d3_data", map);
 	}
-
+	
+	public List<BookDto> allticket() {
+		return this.sqlSessionTemplate.selectList("airport.all_view");
+	}
+	public int deleteTicket(String id, String ticketnum) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("ticketnum", ticketnum);
+		return this.sqlSessionTemplate.delete("airport.delete", map);
+	}
+	
+	
+	
 }

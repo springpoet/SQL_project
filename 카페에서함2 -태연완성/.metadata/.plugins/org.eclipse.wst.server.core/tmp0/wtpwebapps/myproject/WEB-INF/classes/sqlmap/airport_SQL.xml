@@ -77,5 +77,16 @@
 	]]>
 	</select>
 	
+	<select id="all_view" resultType="com.myproject.dto.BookDto">
+	<![CDATA[
+	select * from book;
+	]]>
+	</select>
+	
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	delete from book where id=#{id} and ticketnum=#{ticketnum};
+	]]>
+	</delete>
 	
 </mapper>

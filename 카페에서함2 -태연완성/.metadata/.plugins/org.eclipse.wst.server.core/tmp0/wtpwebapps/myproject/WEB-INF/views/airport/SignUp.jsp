@@ -88,6 +88,7 @@ nav {
          <a href="MainPage" class="navbar-brand"><h2 style=font-weight:800;>티켓 컴바인</h2></a>
 			<img src="/resources/img/ramus.png" style="height:50px;"/>
 			</div>
+			
       </div>
    </nav>
 

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="href"/>
+		<item key="selection" value="반갑"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="href"/>
-			<item value="max"/>
-			<item value="data"/>
-			<item value="data.push"/>
-			<item value="data.upsh"/>
-			<item value="c:forEach"/>
-			<item value="select"/>
-			<item value="selectr"/>
+			<item value="반갑"/>
+			<item value="어드민"/>
+			<item value="margin-left:20"/>
+			<item value="20"/>
+			<item value="button"/>
+			<item value="모든예약"/>
+			<item value="(하네다)"/>
 			<item value=";"/>
-			<item value="h1"/>
-			<item value="남자"/>
-			<item value="Sign"/>
-			<item value="sign"/>
-			<item value="sing_"/>
-			<item value="singup"/>
+			<item value="도쿄"/>
+			<item value="admin"/>
+			<item value="gmp"/>
+			<item value="GMP"/>
+			<item value="myticket"/>
+			<item value="list"/>
+			<item value="detail"/>
 		</list>
 		<list key="replacehistory">
 		</list>

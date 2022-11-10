@@ -30,4 +30,8 @@ public interface airportService {
 	String checkDuplicate(String id);
 	
 	List<Map<String, Object>>ChartList();
+	
+	List<BookDto> allticket();
+	
+	int deleteTicket(String id, String ticketnum);
 }

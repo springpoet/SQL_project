@@ -149,7 +149,7 @@ public class MainController {
 		PasswordEncoder p = new BCryptPasswordEncoder();
 
 		if (p.matches(pw, loginCheck)) {
-			
+		
 			MemberDto dtos = this.airportservice.loginInfor(id);
 			// @ModeAttribute("test")
 			HttpSession session = request.getSession();
@@ -158,7 +158,8 @@ public class MainController {
 			session.setAttribute("sessionId", id);
 			session.setAttribute("sessionGender", dtos.getGender());
 			session.setAttribute("sessionAge", dtos.getAge());
-
+			
+			
 			// 이름 아이디
 
 			mav.setViewName("redirect:/MainPage");
@@ -274,7 +275,7 @@ public class MainController {
 		List<BookDto> bdto = null;
 		bdto = this.airportservice.myticket(id);
 
-		List<BookDto> bdto2 = new ArrayList<BookDto>();
+		
 
 		// System.out.println(bdto.get(0).get출발날짜());
 		// System.out.println(bdto.get(1).get도착공항());
@@ -318,6 +319,35 @@ public class MainController {
 		return mav;
 
 	}
+	
+	@RequestMapping(value = "/adminCheck", method = RequestMethod.GET)
+	public ModelAndView adminCheck() {
 
+		ModelAndView mav = new ModelAndView();
+		
+		List<BookDto> bdto = new ArrayList<BookDto>();
+		bdto = this.airportservice.allticket();
+		
+		mav.addObject("adminList", bdto);
+		
+		
+		mav.setViewName("airport/MyPage");
+		 
+		return mav;
+
+	}
+	@RequestMapping(value = "/adminDelete", method = RequestMethod.GET)
+	public ModelAndView adminDelete(@RequestParam String id, @RequestParam String ticketnum) {
+
+		ModelAndView mav = new ModelAndView();
+		
+		int del =  this.airportservice.deleteTicket(id, ticketnum);
+		
+		mav.setViewName("airport/MyPage");
+		 
+		return mav;
+
+	}
+	
 	
 }

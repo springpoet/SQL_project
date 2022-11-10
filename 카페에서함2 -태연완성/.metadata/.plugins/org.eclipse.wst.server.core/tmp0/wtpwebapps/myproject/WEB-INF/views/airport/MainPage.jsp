@@ -88,6 +88,8 @@ nav {
 			<img src="/resources/img/ramus.png" style="height:50px;"/>
 			</div>
 			<a href="d3data"><img src="/resources/img/d3.png" style="height:60px; "/></a>
+			
+			
          <!-- 로그아웃 -->
          <ul id="nav3" class="nav justify-content-end bg-light">
             <li class="nav-item">
@@ -132,7 +134,6 @@ nav {
 
 
 	
-			
 				
 
 	<div class="card text-center" style="margin-top: 70px;">
@@ -152,7 +153,7 @@ nav {
 					<div style="background-color:rgba( 5, 18, 42, 0.85 );
 					 height:200px; width:1200px; margin:0 auto; padding:60px; border-radius:8px; margin-top:70px;'">
 					<select style="height:50px;" name="depart">
-						<c:forEach var="item" items="${data}">
+						<c:forEach var="item" items="${data}">		
 							<option value="${item}">
 								<c:choose>
 									<c:when test="${item eq 'GMP' }">

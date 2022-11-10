@@ -76,4 +76,16 @@ public class airportServiceImpl implements airportService {
 		return this.airportdao.D3Chart(null);
 	}
 
+	@Override
+	public List<BookDto> allticket() {
+		// TODO Auto-generated method stub
+		return this.airportdao.allticket();
+	}
+
+	@Override
+	public int deleteTicket(String id, String ticketnum) {
+		// TODO Auto-generated method stub
+		return  this.airportdao.deleteTicket(id, ticketnum);
+	}
+
 }
