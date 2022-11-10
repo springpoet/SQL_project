@@ -1,6 +1,7 @@
 package com.myproject.yse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +48,6 @@ public class MainController {
 	public ModelAndView book(@RequestParam String depart, @RequestParam String arrive, @RequestParam String publeYear) {
 
 		ModelAndView mav = new ModelAndView();
-		System.out.println("!!!!!!#####################" + publeYear);
 
 		if (publeYear == "") {
 			boolean bo = true;
@@ -88,10 +88,19 @@ public class MainController {
 	@RequestMapping(value = "/SignUp", method = RequestMethod.POST)
 
 	public ModelAndView signuppost(@RequestParam String id, @RequestParam String pw, @RequestParam String name,
-			@RequestParam String gender, @RequestParam int age) {
+			@RequestParam String gender, @RequestParam String age) {
+
+		if(id == "" || pw == "" || name =="" || age == "") {
+			ModelAndView mav = new ModelAndView();
+			boolean duple = true;
+			mav.addObject("duple2", duple);
+			mav.setViewName("airport/SignUp");
+
+		return mav;
+		}
 
 		MemberDto member = new MemberDto();
-		member.setAge(age);
+		member.setAge(Integer.parseInt(age));
 		member.setGender(gender);
 		member.setId(id);
 		member.setName(name);
@@ -103,10 +112,9 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 
 		String checkDuple = this.airportservice.checkDuplicate(id);
-		System.out.println(checkDuple + "????????????????????????");
 
 		if (checkDuple != null) {
-			System.out.println("중복이요ㅅㄱ");
+
 			boolean bo = true;
 			mav.addObject("duple", bo);
 			mav.setViewName("airport/SignUp");
@@ -114,30 +122,14 @@ public class MainController {
 			int information = this.airportservice.sign_up(member);
 			mav.setViewName("redirect:/MainPage");
 		}
+		
+		
+		
 
 		return mav;
 	}
-	/*
-	 * @RequestMapping(value="/SignUp", method=RequestMethod.POST)
-	 * 
-	 * public ModelAndView signupDB(@RequestParam Map<String, Object> map) {
-	 * 
-	 * ModelAndView mav = new ModelAndView();
-	 * 
-	 * String pw = map.get("password").toString(); //1번째 dto를 쓰는이유 //2번째 map이지금 저렇게
-	 * 나오는데 password만 빼올수있는 방법 //System.out.println(map.get("password"));
-	 * PasswordEncoder p = new BCryptPasswordEncoder(); String Bpw = p.encode(pw);
-	 * 
-	 * System.out.println(Bpw); map.put("password", Bpw); int member =
-	 * this.airportservice.signup(map);
-	 * 
-	 * mav.setViewName("airport/SignUp");
-	 * 
-	 * 
-	 * 
-	 * return mav; }
-	 */
-
+	
+	
 	@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	public ModelAndView login() {
 
@@ -157,7 +149,7 @@ public class MainController {
 		PasswordEncoder p = new BCryptPasswordEncoder();
 
 		if (p.matches(pw, loginCheck)) {
-
+		
 			MemberDto dtos = this.airportservice.loginInfor(id);
 			// @ModeAttribute("test")
 			HttpSession session = request.getSession();
@@ -166,7 +158,8 @@ public class MainController {
 			session.setAttribute("sessionId", id);
 			session.setAttribute("sessionGender", dtos.getGender());
 			session.setAttribute("sessionAge", dtos.getAge());
-
+			
+			
 			// 이름 아이디
 
 			mav.setViewName("redirect:/MainPage");
@@ -203,7 +196,7 @@ public class MainController {
 		mav.setViewName("airport/MyPage");
 
 		return mav;
-	}	
+	}
 
 	@RequestMapping(value = "/bookCheck", method = RequestMethod.GET)
 	public ModelAndView bookCheck(@RequestParam String ticketnum, @RequestParam String id,
@@ -211,13 +204,10 @@ public class MainController {
 
 		ModelAndView mav = new ModelAndView();
 
-		System.out.println("publeYear!!!" + publeYear);
-		System.out.println(id);
 		MemberDto dtos = this.airportservice.loginInfor(id);
+
 		TicketDto tdto = this.airportservice.ticketInfor(ticketnum);
 
-		System.out.println(dtos.getName());
-		System.out.println(tdto.get운항편명());
 		BookDto bdto = new BookDto();
 		bdto.setId(dtos.getId());
 		bdto.setName(dtos.getName());
@@ -229,45 +219,73 @@ public class MainController {
 		bdto.set출발시간(tdto.get출발시간());
 		bdto.set항공사(tdto.get항공사());
 		bdto.set출발날짜(publeYear);
-		int bookduplecheck=this.airportservice.bookdupleCheck(ticketnum);
-		
-		
-		int bookinsert = this.airportservice.book_insert(bdto);
 
-		mav.setViewName("redirect:/MainPage?bookcomplete");
+		// 북테이블에 id를 검색해서 출발날짜랑 티켓넘버를 가져와서
+
+		List<BookDto> comp = new ArrayList<BookDto>();
+
+		comp = this.airportservice.myticket(id);
+
+		if (comp.size() == 0) {
+			int bookinsert = this.airportservice.book_insert(bdto);
+			
+			System.out.println("comp.size = " + comp.size());
+
+			mav.setViewName("redirect:/MainPage?bookcomplete");
+		}
+		
+		boolean in = false;
+		for (int i = 0; i < comp.size(); i++) {
+			
+			if (ticketnum.equals(comp.get(i).getTicketnum()) && publeYear.equals(comp.get(i).get출발날짜())) {
+				System.out.println(ticketnum.equals(comp.get(i).getTicketnum()));
+				System.out.println(publeYear.equals(comp.get(i).get출발날짜()));
+				System.out.println("i : 선택한 티켓넘 =" + ticketnum + "확인할 티켓넘은="+comp.get(i).getTicketnum());
+				System.out.println("안들어가야함");
+				 in = false;
+				mav.setViewName("redirect:/MainPage?bookfail");
+				break;
+			}
+
+			else {
+				in = true;
+
+				System.out.println(ticketnum.equals(comp.get(i).getTicketnum()));
+				System.out.println("i : 선택한 티켓넘 =" + ticketnum + "확인할 티켓넘은="+comp.get(i).getTicketnum());
+				System.out.println(publeYear.equals(comp.get(i).get출발날짜()));
+				System.out.println("들어가야함");
+				mav.setViewName("redirect:/MainPage?bookcomplete");
+				
+			}
+		}
+
+		if(in) {
+			System.out.println("in은 트루라 쿼리문 실행댐");
+			int bookinsert = this.airportservice.book_insert(bdto);
+		}
 
 		return mav;
 	}
 
-
-	
 	@RequestMapping(value = "/myticketCheck", method = RequestMethod.GET)
 	public ModelAndView TicketCheck(@RequestParam String id) {
-		System.out.println("click");
+
 		ModelAndView mav = new ModelAndView();
 
 		List<BookDto> bdto = null;
 		bdto = this.airportservice.myticket(id);
-		System.out.println((String)bdto.get(1).get항공사());
-		System.out.println(bdto.get(0).get도착공항());
+
 		
-//		for(int i=0; i<2; i++) {
-//			bdto2.get(i).setId(bdto.get(i).getId());
-//		}
-		
-		
+
+		// System.out.println(bdto.get(0).get출발날짜());
+		// System.out.println(bdto.get(1).get도착공항());
 		/*
-		bdto2.setId(bdto.getId());
-		bdto2.setName(bdto.getName());
-		bdto2.setTicketnum(bdto.getTicketnum());
-		bdto2.set도착공항(bdto.get도착공항());
-		bdto2.set도착시간(bdto.get도착시간());
-		bdto2.set운항편명(bdto.get운항편명());
-		bdto2.set출발날짜(bdto.get출발날짜());
-		bdto2.set출발공항(bdto.get출발공항());
-		bdto2.set출발시간(bdto.get출발시간());
-		bdto2.set항공사(bdto.get항공사());
-*/
+		 * bdto2.setId(bdto.getId()); bdto2.setName(bdto.getName());
+		 * bdto2.setTicketnum(bdto.getTicketnum()); bdto2.set도착공항(bdto.get도착공항());
+		 * bdto2.set도착시간(bdto.get도착시간()); bdto2.set운항편명(bdto.get운항편명());
+		 * bdto2.set출발날짜(bdto.get출발날짜()); bdto2.set출발공항(bdto.get출발공항());
+		 * bdto2.set출발시간(bdto.get출발시간()); bdto2.set항공사(bdto.get항공사());
+		 */
 		mav.addObject("data", bdto);
 		mav.addObject("check", bdto);
 		mav.setViewName("airport/MyPage");
@@ -280,9 +298,53 @@ public class MainController {
 
 		ModelAndView mav = new ModelAndView();
 
-		System.out.println("sssss");
-
 		mav.setViewName("airport/SignUp");
+		return mav;
+
+	}
+
+	
+	@RequestMapping(value = "/d3data", method = RequestMethod.GET)
+	public ModelAndView d3data() {
+
+		ModelAndView mav = new ModelAndView();
+		
+		List<Map<String, Object>> d3chart =  this.airportservice.ChartList();
+		
+		mav.addObject("data", d3chart);
+		
+		System.out.println(d3chart);
+		
+		mav.setViewName("airport/d3data");
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "/adminCheck", method = RequestMethod.GET)
+	public ModelAndView adminCheck() {
+
+		ModelAndView mav = new ModelAndView();
+		
+		List<BookDto> bdto = new ArrayList<BookDto>();
+		bdto = this.airportservice.allticket();
+		
+		mav.addObject("adminList", bdto);
+		
+		
+		mav.setViewName("airport/MyPage");
+		 
+		return mav;
+
+	}
+	@RequestMapping(value = "/adminDelete", method = RequestMethod.GET)
+	public ModelAndView adminDelete(@RequestParam String id, @RequestParam String ticketnum) {
+
+		ModelAndView mav = new ModelAndView();
+		
+		int del =  this.airportservice.deleteTicket(id, ticketnum);
+		
+		mav.setViewName("airport/MyPage");
+		 
 		return mav;
 
 	}

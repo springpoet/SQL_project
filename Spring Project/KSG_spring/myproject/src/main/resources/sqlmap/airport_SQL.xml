@@ -58,6 +58,8 @@
 	<![CDATA[
 	select * from book where id=#{id}
 	]]>
+	
+	
 	</select>
 	
 	<!-- 중복체크용 -->
@@ -67,10 +69,27 @@
 	]]>
 	</select>
 	
-	<!-- 예매하기 버튼 중복체크 -->
-	<select id="bookcheckDuple" resultType="com.myproject.dto.BookDto">
+	
+	
+	
+	<!-- d3 -->
+	<select id="d3_data" parameterType="hashMap" resultType="hashMap">
 	<![CDATA[
-	select tickectnum from book where tickectnum=#{ticketnum}
+	select * from d3data;
 	]]>
 	</select>
+	
+	<select id="all_view" resultType="com.myproject.dto.BookDto">
+	<![CDATA[
+	select * from book;
+	]]>
+	</select>
+	
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	delete from book where id=#{id} and ticketnum=#{ticketnum};
+	]]>
+	</delete>
+	
+
 </mapper>
