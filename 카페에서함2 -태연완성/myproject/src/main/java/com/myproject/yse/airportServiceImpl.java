@@ -88,4 +88,7 @@ public class airportServiceImpl implements airportService {
 		return  this.airportdao.deleteTicket(id, ticketnum);
 	}
 
+	
+
+
 }

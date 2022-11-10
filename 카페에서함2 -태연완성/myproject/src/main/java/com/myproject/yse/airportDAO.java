@@ -90,6 +90,5 @@ public class airportDAO {
 		return this.sqlSessionTemplate.delete("airport.delete", map);
 	}
 	
-	
-	
+
 }

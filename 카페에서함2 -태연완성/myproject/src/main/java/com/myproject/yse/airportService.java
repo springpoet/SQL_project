@@ -34,4 +34,6 @@ public interface airportService {
 	List<BookDto> allticket();
 	
 	int deleteTicket(String id, String ticketnum);
+	
+
 }

@@ -58,6 +58,8 @@
 	<![CDATA[
 	select * from book where id=#{id}
 	]]>
+	
+	
 	</select>
 	
 	<!-- 중복체크용 -->
@@ -89,4 +91,5 @@
 	]]>
 	</delete>
 	
+
 </mapper>

@@ -134,6 +134,16 @@ nav {
 
 
 	
+				<c:if test="${sessionId eq 'admin' }">
+				<div class="card text-center" style="margin-top: 70px;">
+					
+			<div class="card-body">
+			<h1 style="color:white; margin-top:50px;">관리자 페이지입니다.</h1>
+		</div>
+		</div>
+				</c:if>
+				
+				<c:if test="${sessionId ne 'admin' }">
 				
 
 	<div class="card text-center" style="margin-top: 70px;">
@@ -150,6 +160,7 @@ nav {
 					
 
 				<form action="/MainPage" method="post" style="margin-top:20px;">
+				
 					<div style="background-color:rgba( 5, 18, 42, 0.85 );
 					 height:200px; width:1200px; margin:0 auto; padding:60px; border-radius:8px; margin-top:70px;'">
 					<select style="height:50px;" name="depart">
@@ -354,6 +365,8 @@ nav {
 					 	
 					 	</div>
 				</form>
+				
+				
 		
 				
 			
@@ -362,7 +375,7 @@ nav {
 				</div>
 			
 		</div>
-	
+	</c:if>
 
 		
 
